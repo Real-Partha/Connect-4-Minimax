@@ -95,13 +95,15 @@ def evaluate_window(window, piece):
     opponent_piece = PLAYER if piece == AI else AI
 
     if window.count(piece) == 4:
-        score += 100
+        score += 10000
     elif window.count(piece) == 3 and window.count(EMPTY) == 1:
-        score += 5
+        score += 50
     elif window.count(piece) == 2 and window.count(EMPTY) == 2:
-        score += 2
+        score += 20
     if window.count(opponent_piece) == 3 and window.count(EMPTY) == 1:
-        score -= 4
+        score -= 50
+    elif window.count(opponent_piece) == 2 and window.count(EMPTY) == 2:
+        score -= 20
 
     return score
 
